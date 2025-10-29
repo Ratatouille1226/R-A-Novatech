@@ -1,0 +1,14 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 50px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}

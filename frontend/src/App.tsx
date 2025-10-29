@@ -1,10 +1,12 @@
 import "./App.css";
+import { Header, Main } from "./components";
 
 function App() {
   return (
-    <>
-      <h1>Тут будет крутой сайт :)</h1>
-    </>
+    <main className="container">
+      <Header />
+      <Main />
+    </main>
   );
 }
 
