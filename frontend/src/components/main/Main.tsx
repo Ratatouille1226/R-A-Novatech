@@ -1,18 +1,18 @@
 import { MainVideo } from "./components";
 import styles from "./main.module.css";
+import { useTranslation } from "react-i18next";
 
 export const Main = () => {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.main}>
       <MainVideo />
 
       <div className={styles.content}>
-        <h1>Превращаем идеи в качественные интерфейсы</h1>
-        <p>
-          Каждый наш проект — это баланс формы, функции и смысла. Мы создаём
-          продукты, которые говорят сами за себя
-        </p>
-        <button>Связаться</button>
+        <h1>{t("title_main")}</h1>
+        <p>{t("descr_main")}</p>
+        <button>{t("button")}</button>
       </div>
     </section>
   );
