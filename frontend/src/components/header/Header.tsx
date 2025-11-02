@@ -1,4 +1,6 @@
 import styles from "./header.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
 
 export const Header = () => {
@@ -14,7 +16,14 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <h2>R&A Novatech</h2>
-      <button onClick={toggleLang}>{currentLang === "ru" ? "EN" : "RU"}</button>
+      <div className={styles.buttons}>
+        <i>
+          <FontAwesomeIcon icon={faGear} />
+        </i>
+        <button onClick={toggleLang}>
+          {currentLang === "ru" ? "EN" : "RU"}
+        </button>
+      </div>
     </header>
   );
 };

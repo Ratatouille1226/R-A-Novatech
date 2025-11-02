@@ -12,7 +12,7 @@ export const MainVideo = () => {
         muted
         playsInline
       ></video>
-      {/* <div className={styles.hero__overlay}></div> */}
+      <div className={styles.hero__overlay}></div>
     </>
   );
 };
