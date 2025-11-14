@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Header, Main, Comet } from "./components";
-import { Staff } from "./pages";
+import { NotFound, Staff } from "./pages";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/staff" element={<Staff />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
   );
