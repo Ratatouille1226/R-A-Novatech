@@ -1,9 +1,47 @@
 .staff {
-    max-width: 1440px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
+  width: 100%;
+  color: #fff;
+  margin-top: 40px;
 }
 
+.employees {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.employee {
+  width: 100%;
+  max-width: 1300px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  box-shadow: 0px 0px 21px #1500ff49;
+  border-radius: 20px
+}
+
+.employee img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.image {
+  text-align: center;
+}
+.image h3 {
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+.employee__about {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.employee__about ul li {
+    margin: 8px 40px;
+    line-height: 25px;
+}
