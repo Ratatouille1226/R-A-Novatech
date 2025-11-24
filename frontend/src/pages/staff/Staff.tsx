@@ -1,65 +1,78 @@
 import { Link } from "react-router-dom";
-import employeeAndrey from "../../assets/employeeAndrey.png";
+import photoFace from "../../assets/employeeAndrey.png";
 import styles from "./staff.module.css";
+import { useEffect, useState } from "react";
+
+interface Experience {
+  years: string;
+  company: string;
+  role: string;
+  description: string;
+}
+interface StaffMember {
+  id: number;
+  name: string;
+  photo: string;
+  slogan: string;
+  position: string;
+  age: number;
+  workExperience: string;
+  experience: Experience[];
+}
 
 export const Staff = () => {
+  const [staff, setStaff] = useState<StaffMember[]>([]); // по умолчанию пустой массив
+
+  useEffect(() => {
+    fetch("http://localhost:3000/staff")
+      .then((res) => res.json())
+      .then((data) => {
+        // Если data — это массив
+        if (Array.isArray(data)) {
+          setStaff(data);
+        } else if (Array.isArray(data.staff)) {
+          setStaff(data.staff);
+        } else {
+          console.error("Неправильный формат данных", data);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className={styles.staff}>
       <div className={styles.employees}>
-        <div className={styles.employee}>
-          <div className={styles.image}>
-            <img src={employeeAndrey} alt="employeeAndrey" />
-            <h3>Андрей</h3>
-            <span>"Строю интерфейсы, которыми хочется пользоваться."</span>
-          </div>
-          <div className={styles.employee__about}>
-            <span>Должность: Frontend-разработчик</span>
-            <span>Возраст: 22 года</span>
-            <span>Стаж работы: 2 года 5 месяцев</span>
-            <ul>
-              Опыт:
-              <li>
-                2023 год - Result School (Стажёр frontend-разработчик) <br />{" "}
-                Создание коммерческих SPA-приложений. Освоил полный цикл
-                разработки — от архитектуры до деплоя. Работал в команде под
-                руководством менторов и участвовал в командных проектах.
-              </li>
-              <li>
-                2023-2025 год - СмартМедиа (Frontend-разработчик) <br />{" "}
-                Разработка и поддержание внутренних и клиентских веб-проектов
-                компании. Участие в проектировании интерфейсов, улучшении
-                архитектуры и оптимизации производительности приложений.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={styles.employee}>
-          <div className={styles.image}>
-            <img src={employeeAndrey} alt="employeeAndrey" />
-            <h3>Андрей</h3>
-            <span>"Строю интерфейсы, которыми хочется пользоваться."</span>
-          </div>
-          <div className={styles.employee__about}>
-            <span>Должность: Frontend-разработчик</span>
-            <span>Возраст: 22 года</span>
-            <span>Стаж работы: 2 года 5 месяцев</span>
-            <ul>
-              Опыт:
-              <li>
-                2023 год - Result School (Стажёр frontend-разработчик) <br />{" "}
-                Создание коммерческих SPA-приложений. Освоил полный цикл
-                разработки — от архитектуры до деплоя. Работал в команде под
-                руководством менторов и участвовал в командных проектах.
-              </li>
-              <li>
-                2023-2025 год - СмартМедиа (Frontend-разработчик) <br />{" "}
-                Разработка и поддержание внутренних и клиентских веб-проектов
-                компании. Участие в проектировании интерфейсов, улучшении
-                архитектуры и оптимизации производительности приложений.
-              </li>
-            </ul>
-          </div>
-        </div>
+        {staff &&
+          staff.length > 0 &&
+          staff.map((item) => (
+            <div className={styles.employee} key={item.id}>
+              <div className={styles.image}>
+                <img src={photoFace} alt={item.name} />
+                <h3>{item.name}</h3>
+                <span>"{item.slogan}"</span>
+              </div>
+              <div className={styles.employee__about}>
+                <span>
+                  <i>Должность:</i> {item.position}
+                </span>
+                <span>
+                  <i>Возраст:</i> {item.age}
+                </span>
+                <span>
+                  <i>Стаж работы:</i> {item.workExperience}
+                </span>
+                <ul>
+                  <i>Опыт:</i>
+                  {item.experience.map((exp, index) => (
+                    <li key={index}>
+                      {exp.years} - {exp.company} ({exp.role}) <br />
+                      {exp.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
       </div>
       <Link to="/">Назад</Link>
     </div>

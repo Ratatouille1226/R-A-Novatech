@@ -19,7 +19,14 @@
   display: flex;
   gap: 20px;
   box-shadow: 0px 0px 21px #1500ff49;
-  border-radius: 20px
+  border-radius: 20px;
+  background-color: rgb(0, 5, 22);
+  transition: 0.3s ease all;
+}
+
+.employee:hover {
+  transform: scale(1.01);
+  transition: 0.3s ease all;
 }
 
 .employee img {
@@ -41,7 +48,33 @@
     flex-direction: column;
     gap: 10px;
 }
+.employee__about span i {
+  color: rgb(158, 158, 158);
+}
+.employee__about ul i {
+  color: rgb(158, 158, 158);
+}
 .employee__about ul li {
     margin: 8px 40px;
     line-height: 25px;
+}
+
+@media (max-width: 680px) {
+  .employee {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .employee__about ul li {
+    margin: 8px 0px 8px 40px;
+  }
+}
+
+@media (max-width: 375px) {
+  .employee__about ul li {
+      margin: 8px 0px 8px 30px;
+      line-height: 20px;
+      font-size: 14px;
+  }
 }
