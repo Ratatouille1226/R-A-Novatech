@@ -1,4 +1,4 @@
 export * from './header/Header';
-export * from './main/Main';
-export * from './about-us/AboutUs';
 export * from './comet/Comet';
+export * from './skeleton/Skeleton';
+export * from './scroll-top/ScrollToTop';

@@ -1,80 +1,21 @@
-import { Link } from "react-router-dom";
-import photoFace from "../../assets/employeeAndrey.png";
+import { useNavigate } from "react-router-dom";
 import styles from "./staff.module.css";
-import { useEffect, useState } from "react";
-
-interface Experience {
-  years: string;
-  company: string;
-  role: string;
-  description: string;
-}
-interface StaffMember {
-  id: number;
-  name: string;
-  photo: string;
-  slogan: string;
-  position: string;
-  age: number;
-  workExperience: string;
-  experience: Experience[];
-}
+import { EmployeeCard } from "./components/employee-card/EmployeeCard"; //Карточка сотрудника (чтобы не засорять компонент)
+import { UseStaff } from "./components/hooks/UseStaff";
+import { Skeleton } from "../../components";
 
 export const Staff = () => {
-  const [staff, setStaff] = useState<StaffMember[]>([]); // по умолчанию пустой массив
-
-  useEffect(() => {
-    fetch("http://localhost:3000/staff")
-      .then((res) => res.json())
-      .then((data) => {
-        // Если data — это массив
-        if (Array.isArray(data)) {
-          setStaff(data);
-        } else if (Array.isArray(data.staff)) {
-          setStaff(data.staff);
-        } else {
-          console.error("Неправильный формат данных", data);
-        }
-      })
-      .catch((err) => console.error(err));
-  }, []);
+  const { staff, isLoading } = UseStaff(); //Кастомный хук получения сотрудников
+  const navigate = useNavigate();
 
   return (
     <div className={styles.staff}>
-      <div className={styles.employees}>
-        {staff &&
-          staff.length > 0 &&
-          staff.map((item) => (
-            <div className={styles.employee} key={item.id}>
-              <div className={styles.image}>
-                <img src={photoFace} alt={item.name} />
-                <h3>{item.name}</h3>
-                <span>"{item.slogan}"</span>
-              </div>
-              <div className={styles.employee__about}>
-                <span>
-                  <i>Должность:</i> {item.position}
-                </span>
-                <span>
-                  <i>Возраст:</i> {item.age}
-                </span>
-                <span>
-                  <i>Стаж работы:</i> {item.workExperience}
-                </span>
-                <ul>
-                  <i>Опыт:</i>
-                  {item.experience.map((exp, index) => (
-                    <li key={index}>
-                      {exp.years} - {exp.company} ({exp.role}) <br />
-                      {exp.description}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-      </div>
-      <Link to="/">Назад</Link>
+      <button className={styles.back} onClick={() => navigate(-1)}>
+        Назад
+      </button>
+      {isLoading
+        ? Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} />)
+        : staff.map((item) => <EmployeeCard key={item.id} item={item} />)}
     </div>
   );
 };

@@ -1,5 +1,4 @@
-import { AboutUs } from "../about-us/AboutUs";
-import { MainVideo } from "./components";
+import { MainVideo, AboutUs } from "./components";
 import styles from "./main.module.css";
 import { useTranslation } from "react-i18next";
 

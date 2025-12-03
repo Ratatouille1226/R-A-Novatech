@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Header, Main, Comet } from "./components";
-import { NotFound, Staff } from "./pages";
+import { Header, Comet } from "./components";
+import { NotFound, Staff, Main } from "./pages";
 
 function App() {
   return (
