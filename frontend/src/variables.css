@@ -1,0 +1,31 @@
+:root {
+    --main-title: rgb(0, 98, 255);
+    --header-spin: rgb(0, 98, 255);
+    --button-main: linear-gradient(90deg, #007cf0 0%, #7928ca 100%);
+    --about-us-photo: rgba(52, 52, 255, 0.297);
+}
+
+.theme-green {
+    --main-title: rgb(38, 255, 0);
+    --header-spin: rgb(38, 255, 0);
+    --button-main: linear-gradient(90deg, #3cf000 0%, #7928ca 100%);
+    --about-us-photo: rgba(81, 255, 78, 0.207);
+}
+
+/* .theme-blue {
+ --main-title: rgb(0, 98, 255);
+ --header-spin: rgb(0, 98, 255);
+} */
+.theme-red {
+ --main-title: rgb(255, 0, 0);
+ --header-spin: rgb(255, 0, 0);
+ --button-main: linear-gradient(90deg, #f00000 0%, #7928ca 100%);
+ --about-us-photo: rgba(255, 52, 52, 0.297);
+}
+
+.theme-violet {
+ --main-title: rgb(147, 0, 251);
+ --header-spin: rgb(147, 0, 251);
+ --button-main: linear-gradient(90deg, #e000f0 0%, #7928ca 100%);
+ --about-us-photo: rgba(255, 52, 248, 0.297);
+}

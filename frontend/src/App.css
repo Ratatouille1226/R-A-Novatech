@@ -15,3 +15,28 @@ body {
   margin: 0 auto;  
   padding: 0 20px; 
 }
+
+/* Chrome / Safari / Edge */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3f00ff, #1500aa);
+  border-radius: 10px;
+  border: 2px solid #050505; /* чтобы было видно отступы */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5f22ff, #2600ff);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f00ff #050505;
+}

@@ -1,0 +1,83 @@
+.container {
+    background-color: rgba(19, 20, 38, 0.827);
+    height: 50px;
+    width: 300px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-radius: 20px;
+    right: 200px;
+    top: -50px;
+    transition: 0.5s ease all;
+}
+.active {
+    top: 10px;
+    transition: 0.5s ease all;
+}
+
+.blue {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    cursor: pointer;
+}
+.red {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 33, 33);
+    cursor: pointer;
+}
+.green {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(32, 206, 32);
+    cursor: pointer;
+}
+.violet {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(162, 1, 162);
+    cursor: pointer;
+}
+
+@media (max-width: 830px) {
+    .container {
+    background-color: rgb(19, 20, 38);
+    height:200px;
+    width: 40px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 20px;
+    right: -150px;
+    top: 60px;
+    transition: 0.5s ease all;
+}
+.active {
+    right: 23px;
+}
+.blue {
+        width: 30px;
+    height: 30px;
+}
+.green {
+        width: 30px;
+    height: 30px;
+}
+.red {
+        width: 30px;
+    height: 30px;
+}
+.violet {
+        width: 30px;
+    height: 30px;
+}
+}

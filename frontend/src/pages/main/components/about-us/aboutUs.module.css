@@ -23,7 +23,7 @@
   max-width: 450px;
   height: 280px;
   border-radius: 20px;
-  box-shadow: 0px 0px 50px rgba(52, 52, 255, 0.297);
+  box-shadow: 0px 0px 50px var(--about-us-photo);
     transition: all .5s ease;
 }
 .about__photo:hover {

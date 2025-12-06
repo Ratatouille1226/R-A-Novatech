@@ -18,7 +18,7 @@
 }
 h1 {
     font-size: 60px;
-    color: rgb(0, 98, 255);
+    color: var(--main-title);
 }
 p {
     font-size: 20px;
@@ -33,7 +33,7 @@ button {
     color: #fff;
     font-size: 16px;
     letter-spacing: 7px;
-    background: linear-gradient(90deg, #007cf0 0%, #7928ca 100%);
+    background: var(--button-main);
     transition: 0.3s;
 }
 

@@ -86,7 +86,7 @@
 .buttons i {
   font-size: 26px;
   cursor: pointer;
-  color: rgb(0, 98, 255);
+  color: var(--header-spin);
   animation: spin 3s linear infinite;
 }
 
