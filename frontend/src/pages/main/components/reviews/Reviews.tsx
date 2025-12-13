@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import styles from "./Reviews.module.css";
+import styles from "./reviews.module.css";
 
 const SECRET_CODE = "HUI"; // ← потом можно вынести в env
 
