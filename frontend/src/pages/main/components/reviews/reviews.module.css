@@ -1,0 +1,281 @@
+/* БАЗА */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1500px;
+    gap: 150px;
+    margin-top: 50px;
+}
+
+/* Левая / правая колонка */
+.formBlock,
+.reviewsBlock {
+  flex: 1 1 0;
+  min-width: 0; /* ❗ важно, чтобы ничего не вылезало */
+}
+
+/* ================== ЗАГОЛОВКИ ================== */
+.title {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+/* ================== ФОРМА ================== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+
+  font-size: 16px;
+  color: #fff;
+
+  background: #0f0f12;
+  border: 1px solid #222;
+  border-radius: 10px;
+
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.input:focus {
+  border-color: #6e7bff;
+  background: #15151a;
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  background: linear-gradient(135deg, #6e7bff, #3e4be0);
+  color: #fff;
+
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ================== ОТЗЫВЫ ================== */
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Карточка */
+.card {
+  flex: 1;
+  max-width: 360px;
+  margin: 0 auto;
+
+  padding: 24px;
+
+  background: #0f0f12;
+  border: 1px solid #1c1c1f;
+  border-radius: 14px;
+
+  min-height: 300px; /* ❗ фиксируем высоту */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: border-color 0.25s ease;
+}
+
+.card:hover {
+  border-color: #3e4be0;
+}
+
+.name {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 15px;
+  color: #c9c9d7;
+  line-height: 1.5;
+}
+
+/* Стрелки */
+.arrow {
+  font-size: 28px;
+  color: #fff;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  transition: opacity 0.2s ease;
+}
+
+.arrow:hover {
+  opacity: 0.6;
+}
+
+/* ================== АДАПТИВ ================== */
+
+/* Планшеты */
+@media (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .slider {
+    justify-content: center;
+  }
+}
+
+/* Мобильные */
+@media (max-width: 600px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .card {
+    max-width: 100%;
+    min-height: 200px;
+    padding: 22px;
+  }
+
+  .arrow {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 450px) {
+  .arrow {
+    width: 20px;
+  }
+}
+
+/* Очень маленькие */
+@media (max-width: 380px) {
+  .card {
+    min-height: 220px;
+    padding: 18px;
+  }
+}
+
+
+/* ================== КОДОВОЕ СЛОВО ================== */
+
+.codeField {
+  position: relative;
+  width: 100%;
+}
+
+/* вопросик внутри инпута */
+.hintIcon {
+  position: absolute;
+  right: 14px;
+    top: 25%;
+    padding: 4px 7px;
+
+  width: 26px;
+  height: 26px;
+
+  border-radius: 50%;
+  border: 1px solid #2a2a2f;
+  background: #0f0f12;
+
+  color: #9aa0ff;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  z-index: 2;
+
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.hintIcon:hover {
+  border-color: #6e7bff;
+  background: #15151a;
+}
+
+/* подсказка */
+.hint {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+
+  width: 260px;
+  padding: 12px 14px;
+
+  background: #0f0f12;
+  border: 1px solid #2a2a2f;
+  border-radius: 10px;
+
+  font-size: 13px;
+  line-height: 1.4;
+  color: #c9c9d7;
+
+  z-index: 10;
+}
+
+/* стрелочка */
+.hint::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 24px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #0f0f12;
+  border-left: 1px solid #2a2a2f;
+  border-top: 1px solid #2a2a2f;
+
+  transform: rotate(45deg);
+}
+
+/* кнопка disabled */
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* мобильные */
+@media (max-width: 600px) {
+  .hint {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}

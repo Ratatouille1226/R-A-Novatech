@@ -1,0 +1,110 @@
+/* Контейнер */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Заголовок */
+.title {
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Контейнер с категориями */
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Название категории */
+.categoryTitle {
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 22px;
+    font-weight: 600;
+}
+
+/* GRID навыков */
+.skillsGrid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+/* Элемент навыка */
+.skill {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 18px;
+
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+
+    color: #e2e2ef;
+    font-size: 16px;
+
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Glow слой */
+.skill::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(120, 120, 255, 0.25),
+        transparent 60%
+    );
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.skill:hover::before {
+    opacity: 1;
+}
+
+.skill:hover {
+    border-color: rgba(140, 140, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Иконка (пока квадрат) */
+.icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(140, 140, 255, 0.85),
+        rgba(90, 90, 200, 0.65)
+    );
+    box-shadow: 0 0 6px rgba(120, 120, 255, 0.6);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 600px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .categoryTitle {
+        font-size: 22px;
+    }
+}

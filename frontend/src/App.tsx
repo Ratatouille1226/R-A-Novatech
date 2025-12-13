@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Header, Comet } from "./components";
+import { Header, Comet, Footer } from "./components";
 import { NotFound, Staff, Main } from "./pages";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <Route path="/staff" element={<Staff />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </main>
   );
 }

@@ -1,4 +1,4 @@
-import { MainVideo, AboutUs } from "./components";
+import { MainVideo, AboutUs, WhatServices, Stack, Reviews } from "./components";
 import styles from "./main.module.css";
 import { useTranslation } from "react-i18next";
 
@@ -15,6 +15,9 @@ export const Main = () => {
         <button>{t("button")}</button>
 
         <AboutUs />
+        <WhatServices />
+        <Stack />
+        <Reviews />
       </div>
     </section>
   );

@@ -35,7 +35,7 @@
 
 @media (max-width: 850px) {
   .about {
-    margin: 50px 10px;
+    margin:100px 10px 200px 10px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -73,7 +73,7 @@
 }
 
 /*  Лёгкий световой отблеск при наведении */
-.about__us a::before {
+/* .about__us a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -87,7 +87,7 @@
     transparent
   );
   transform: skewX(-25deg);
-}
+} */
 
 /*  Анимация блика при hover */
 .about__us a:hover::before {

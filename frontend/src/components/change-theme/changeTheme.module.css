@@ -60,9 +60,11 @@
     right: -150px;
     top: 60px;
     transition: 0.5s ease all;
+    display: none;
 }
 .active {
     right: 23px;
+    display: block;
 }
 .blue {
         width: 30px;
