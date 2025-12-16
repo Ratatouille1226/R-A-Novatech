@@ -27,9 +27,11 @@ export const Stack = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.title}>Технологии которые мы применяем</h2>
+      <h2 data-aos="fade-down" className={styles.title}>
+        Технологии которые мы применяем
+      </h2>
 
-      <div className={styles.categories}>
+      <div data-aos="fade-up" className={styles.categories}>
         {categories.map((cat, i) => (
           <div key={i}>
             <h3 className={styles.categoryTitle}>{cat.title}</h3>

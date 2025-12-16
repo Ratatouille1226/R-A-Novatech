@@ -53,7 +53,7 @@ export const Reviews = () => {
   return (
     <div className={styles.wrapper}>
       {/* ФОРМА */}
-      <div className={styles.formBlock}>
+      <div data-aos="fade-right" className={styles.formBlock}>
         <h2 className={styles.title}>Оставьте отзыв</h2>
 
         <form className={styles.form}>
@@ -93,7 +93,7 @@ export const Reviews = () => {
       </div>
 
       {/* ОТЗЫВЫ */}
-      <div className={styles.reviewsBlock}>
+      <div data-aos="fade-left" className={styles.reviewsBlock}>
         <div className={styles.slider}>
           <button className={styles.arrow} onClick={prev}>
             ‹

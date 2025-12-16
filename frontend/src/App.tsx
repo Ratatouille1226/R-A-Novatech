@@ -2,8 +2,24 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Header, Comet, Footer } from "./components";
 import { NotFound, Staff, Main } from "./pages";
+import AOS from "aos";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 700,
+      easing: "ease-out-cubic",
+
+      offset: 120, // элемент появляется чуть раньше
+      delay: 0, // базовая задержка
+      anchorPlacement: "top-bottom",
+
+      mirror: false,
+    });
+  }, []);
+
   return (
     <main className="container">
       <Header />

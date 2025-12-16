@@ -38,9 +38,11 @@ export const WhatServices = () => {
 
   return (
     <div className={styles.services__container}>
-      <h2 className={styles.title}>Мы предоставляем</h2>
+      <h2 data-aos="fade-down" className={styles.title}>
+        Мы предоставляем
+      </h2>
 
-      <div className={styles.services}>
+      <div data-aos="fade-up" className={styles.services}>
         {services.map((item, i) => (
           <div key={i} className={styles.service} onMouseMove={handleMouseMove}>
             <img src={website} alt="websites" />
