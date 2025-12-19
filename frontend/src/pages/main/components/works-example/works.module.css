@@ -1,0 +1,119 @@
+.portfolioCTA {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 60px auto;
+  max-width: 1200px;
+  padding: 60px 40px;
+  text-align: center;
+
+  /* Темный градиентный фон */
+  background: linear-gradient(135deg, #0a0a14 0%, #111124 50%, #1b1b33 100%);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+
+  /* CSS-переменные для glow */
+  --x: 50%;
+  --y: 50%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Hover эффект подъёма и glow */
+.portfolioCTA:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(100, 100, 200, 0.25);
+  border-color: rgba(100, 100, 200, 0.25);
+}
+
+/* Glow эффект по курсору */
+.portfolioCTA::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    220px circle at var(--x) var(--y),
+    rgba(100, 100, 200, 0.25),
+    transparent 70%
+  );
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+.portfolioCTA:hover::before {
+  opacity: 1;
+}
+
+/* Контейнер */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Текст */
+.title {
+  color: #ddd;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #7a7aff, #9a9aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.subtitle {
+  color: #aaaabb;
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.6;
+  transition: transform 0.3s ease;
+}
+
+/* Кнопка */
+.button {
+  display: inline-block;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 14px;
+  text-decoration: none;
+  background: linear-gradient(90deg, rgba(80,80,150,0.6), rgba(120,120,180,0.5));
+  box-shadow: 0 6px 18px rgba(80, 80, 150, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(80, 80, 150, 0.4);
+  background: linear-gradient(90deg, rgba(90,90,180,0.7), rgba(130,130,200,0.6));
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .portfolioCTA {
+    padding: 40px 20px;
+  }
+}

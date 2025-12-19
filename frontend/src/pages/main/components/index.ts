@@ -4,3 +4,4 @@ export * from './what-services/WhatServices';
 export * from './stack/Stack';
 export * from './reviews/Reviews';
 export * from './contact/Contact';
+export * from './works-example/WorksExample';

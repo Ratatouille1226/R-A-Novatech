@@ -3,7 +3,7 @@ import styles from "./stack.module.css";
 const categories = [
   {
     title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "UI", "SPA", "SSR"],
+    items: ["React", "TypeScript", "Html", "CSS", "Next.js", "UI / UX"],
   },
   {
     title: "Backend",

@@ -5,6 +5,7 @@ import {
   Stack,
   Reviews,
   Contact,
+  WorksExample,
 } from "./components";
 import styles from "./main.module.css";
 import { useTranslation } from "react-i18next";
@@ -23,6 +24,7 @@ export const Main = () => {
 
         <AboutUs />
         <WhatServices />
+        <WorksExample />
         <Stack />
         <Contact />
         <Reviews />

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Header, Comet, Footer } from "./components";
-import { NotFound, Staff, Main } from "./pages";
+import { NotFound, Staff, Main, Works } from "./pages";
 import AOS from "aos";
 import { useEffect } from "react";
 
@@ -27,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/staff" element={<Staff />} />
+        <Route path="/works" element={<Works />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
