@@ -4,6 +4,7 @@ import { Header, Comet, Footer } from "./components";
 import { NotFound, Staff, Main, Works } from "./pages";
 import AOS from "aos";
 import { useEffect } from "react";
+import { WorkMakeUp } from "./pages/works/components";
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/works" element={<Works />} />
+        <Route path="/makeup" element={<WorkMakeUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
