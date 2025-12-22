@@ -1,0 +1,104 @@
+/* затемнённый фон */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* само окно */
+.modal {
+  background: rgba(15, 15, 30, 0.92);
+  border: 1px solid rgba(120, 120, 255, 0.25);
+  padding: 36px 32px;
+  width: min(90%, 440px);
+  border-radius: 18px;
+
+  box-shadow: 0 0 40px rgba(120, 120, 255, 0.25);
+  animation: popup 0.4s ease forwards;
+  text-align: center;
+}
+
+/* заголовок */
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+/* блок со скидкой */
+.discount {
+  font-size: 20px;
+  color: #ffdddd;
+  margin-bottom: 12px;
+}
+
+.percent {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ff3b3b;
+  text-shadow: 0 0 10px rgba(255, 60, 60, 0.4);
+  margin-right: 6px;
+}
+
+/* текст */
+.text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #b8b8cc;
+  margin-bottom: 28px;
+}
+
+/* кнопка */
+.button {
+  padding: 10px 24px;
+  background: linear-gradient(90deg, #3a3aff, #7a3aff);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(120, 120, 255, 0.4);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

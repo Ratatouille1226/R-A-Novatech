@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Header, Comet, Footer } from "./components";
+import { Header, Comet, Footer, Modal } from "./components";
 import { NotFound, Staff, Main, Works } from "./pages";
 import AOS from "aos";
 import { useEffect } from "react";
@@ -25,6 +25,7 @@ function App() {
     <main className="container">
       <Header />
       <Comet />
+      <Modal />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/staff" element={<Staff />} />
