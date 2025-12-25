@@ -1,4 +1,4 @@
-import mainVideo from "../../../../assets/light_flying_2.mov";
+import mainVideo from "../../../../assets/blue_light_flying.mov";
 import styles from "./mainVideo.module.css";
 
 export const MainVideo = () => {

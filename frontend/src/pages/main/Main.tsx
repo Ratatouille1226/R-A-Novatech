@@ -1,3 +1,4 @@
+import { Typewriter } from "react-simple-typewriter";
 import {
   MainVideo,
   AboutUs,
@@ -18,7 +19,20 @@ export const Main = () => {
       <MainVideo />
 
       <div className={styles.content}>
-        <h1 data-aos="fade-right">{t("title_main")}</h1>
+        <h1>
+          {t("title_main")}{" "}
+          <span style={{ color: "#6e7bff" }}>
+            <Typewriter
+              words={t("title_main_words", { returnObjects: true }) as string[]}
+              loop={0}
+              cursor
+              cursorStyle="|"
+              typeSpeed={150}
+              deleteSpeed={70}
+              delaySpeed={1200}
+            />
+          </span>
+        </h1>
         <p data-aos="fade-left">{t("descr_main")}</p>
         <button data-aos="fade-up">{t("button")}</button>
 
