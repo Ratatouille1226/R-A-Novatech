@@ -1,38 +1,28 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./reviews.module.css";
+import { UseReviews } from "../../../../hooks/UseReviews";
 
 const SECRET_CODE = "HUI"; // ← потом можно вынести в env
 
-const reviews = [
-  {
-    name: "Алексей",
-    text: "Команда быстро и качественно реализовала проект. Отличная коммуникация и внимание к деталям!",
-  },
-  {
-    name: "Мария",
-    text: "Очень довольна дизайном! Всё современно, аккуратно и со вкусом.",
-  },
-  {
-    name: "Дмитрий",
-    text: "Сайт работает быстро, адаптивно и выглядит шикарно. Настоящие профессионалы.",
-  },
-  {
-    name: "Ольга",
-    text: "Команда не просто сделала сайт — они помогли улучшить продукт. Рекомендую!",
-  },
-];
-
 export const Reviews = () => {
+  const { reviews } = UseReviews();
+
   const [index, setIndex] = useState(0);
   const [code, setCode] = useState("");
   const [hintOpen, setHintOpen] = useState(false);
 
   const hintRef = useRef<HTMLDivElement>(null);
 
-  const next = () => setIndex((i) => (i + 1) % reviews.length);
-  const prev = () => setIndex((i) => (i - 1 + reviews.length) % reviews.length);
+  const next = () =>
+    setIndex((i) => (reviews.length ? (i + 1) % reviews.length : 0));
+  const prev = () =>
+    setIndex((i) =>
+      reviews.length ? (i - 1 + reviews.length) % reviews.length : 0
+    );
 
   const isValidCode = code === SECRET_CODE;
+
+  console.log(reviews);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -99,10 +89,12 @@ export const Reviews = () => {
             ‹
           </button>
 
-          <div className={styles.card}>
-            <h3 className={styles.name}>{reviews[index].name}</h3>
-            <p className={styles.text}>{reviews[index].text}</p>
-          </div>
+          {reviews.length > 0 && (
+            <div className={styles.card}>
+              <h3 className={styles.name}>{reviews[index].name}</h3>
+              <p className={styles.text}>{reviews[index].descr}</p>
+            </div>
+          )}
 
           <button className={styles.arrow} onClick={next}>
             ›

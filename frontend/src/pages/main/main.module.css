@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Luckiest+Guy&family=Sevillana&display=swap');
+
 .main {
   position: relative;       /* теперь видео не вылезает за секцию */
   min-height: 100vh;        /* секция на весь экран */
@@ -17,7 +19,9 @@
   padding: 150px 20px 20px 20px;
 }
 h1 {
-    font-size: 60px;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 800;
+    font-size: 40px;
     color: var(--main-title);
 }
 p {

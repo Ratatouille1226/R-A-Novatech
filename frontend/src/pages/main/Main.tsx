@@ -7,6 +7,7 @@ import {
   Reviews,
   Contact,
   WorksExample,
+  WorkOrder,
 } from "./components";
 import styles from "./main.module.css";
 import { useTranslation } from "react-i18next";
@@ -20,7 +21,7 @@ export const Main = () => {
 
       <div className={styles.content}>
         <h1>
-          {t("title_main")}{" "}
+          {t("title_main")}
           <span style={{ color: "#6e7bff" }}>
             <Typewriter
               words={t("title_main_words", { returnObjects: true }) as string[]}
@@ -38,6 +39,7 @@ export const Main = () => {
 
         <AboutUs />
         <WhatServices />
+        <WorkOrder />
         <WorksExample />
         <Stack />
         <Contact />

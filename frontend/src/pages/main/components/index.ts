@@ -5,3 +5,4 @@ export * from './stack/Stack';
 export * from './reviews/Reviews';
 export * from './contact/Contact';
 export * from './works-example/WorksExample';
+export * from './work-order/WorkOrder';

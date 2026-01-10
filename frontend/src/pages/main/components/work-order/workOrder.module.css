@@ -1,0 +1,100 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4a4aef;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  position: relative;
+  padding-left: 40px;
+}
+
+.flow::before {
+  content: "";
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: none;
+  border-radius: 50px;
+  opacity: 0.9;
+  background: linear-gradient(180deg, #a566ff, #7b5bff);
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='200' viewBox='0 0 20 200'><path d='M10 0 Q0 25 10 50 T10 100 T10 150 T10 200' stroke='black' stroke-width='6' fill='none' stroke-linecap='round'/></svg>") repeat-y;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='200' viewBox='0 0 20 200'><path d='M10 0 Q0 25 10 50 T10 100 T10 150 T10 200' stroke='black' stroke-width='6' fill='none' stroke-linecap='round'/></svg>") repeat-y;
+}
+
+.flowItem {
+  background: linear-gradient(135deg, #a566ff, #7b5bff);
+  color: #fff;
+  padding: 28px;
+  border-radius: 22px;
+  position: relative;
+  min-height: 160px;
+}
+
+.flowItem::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #7b5bff;
+  border-radius: 50%;
+  box-shadow: 0 20px 40px rgba(123, 91, 255, 0.5);
+}
+
+.flowItem:last-child::after {
+  display: none;
+}
+
+.card {
+  background: linear-gradient(135deg, #a566ff, #7b5bff);
+  color: #fff;
+  padding: 24px;
+  border-radius: 18px;
+  text-align: left;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.number {
+  font-size: 32px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cardText {
+  font-size: 15px;
+  opacity: 0.9;
+}

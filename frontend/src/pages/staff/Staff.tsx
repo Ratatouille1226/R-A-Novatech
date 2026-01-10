@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./staff.module.css";
 import { EmployeeCard } from "./components/employee-card/EmployeeCard"; //Карточка сотрудника (чтобы не засорять компонент)
-import { UseStaff } from "./components/hooks/UseStaff";
+import { UseStaff } from "../../hooks/UseStaff";
 import { Skeleton } from "../../components";
 
 export const Staff = () => {

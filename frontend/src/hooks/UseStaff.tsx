@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { StaffMember } from "../../../../types/staff";
+import type { StaffMember } from "../types/staff";
 
 export const UseStaff = () => {
   const [staff, setStaff] = useState<StaffMember[]>([]); // по умолчанию пустой массив
