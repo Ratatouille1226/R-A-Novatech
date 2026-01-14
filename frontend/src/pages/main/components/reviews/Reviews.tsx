@@ -1,18 +1,25 @@
 import { useState, useRef, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import styles from "./reviews.module.css";
 import { UseReviews } from "../../../../hooks/UseReviews";
-
-const SECRET_CODE = "HUI"; // ← потом можно вынести в env
+import type { ReviewForm } from "../../../../types/reviewForm";
 
 export const Reviews = () => {
-  const { reviews } = UseReviews();
+  const { reviews, addReview, error, loading } = UseReviews();
 
-  const [index, setIndex] = useState(0);
-  const [code, setCode] = useState("");
-  const [hintOpen, setHintOpen] = useState(false);
-
+  const [index, setIndex] = useState(0); //Слайды
+  const [hintOpen, setHintOpen] = useState(false); //Подсказка по кодовому слову
   const hintRef = useRef<HTMLDivElement>(null);
 
+  //Валидация формы
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ReviewForm>({ mode: "onSubmit" });
+
+  //Логика слайдера
   const next = () =>
     setIndex((i) => (reviews.length ? (i + 1) % reviews.length : 0));
   const prev = () =>
@@ -20,9 +27,11 @@ export const Reviews = () => {
       reviews.length ? (i - 1 + reviews.length) % reviews.length : 0
     );
 
-  const isValidCode = code === SECRET_CODE;
-
-  console.log(reviews);
+  //Отправка формы
+  const onSubmit = async (data: ReviewForm) => {
+    await addReview(data.name, data.descr, data.code);
+    reset();
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,9 +55,30 @@ export const Reviews = () => {
       <div data-aos="fade-right" className={styles.formBlock}>
         <h2 className={styles.title}>Оставьте отзыв</h2>
 
-        <form className={styles.form}>
-          <input className={styles.input} type="text" placeholder="Ваше имя" />
-          <input className={styles.input} type="text" placeholder="Ваш отзыв" />
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="Ваше имя"
+            {...register("name", {
+              required: "Введите имя",
+              minLength: { value: 2, message: "Минимум 2 символа" },
+            })}
+          />
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="Ваш отзыв"
+            {...register("descr", {
+              required: "Введите отзыв",
+              minLength: { value: 10, message: "Минимум 10 символов" },
+              maxLength: { value: 100, message: "Максимум 300 символов" },
+            })}
+          />
+
+          {errors.descr && (
+            <span className={styles.error}>{errors.descr.message}</span>
+          )}
 
           {/* Кодовое слово */}
           <div className={styles.codeField} ref={hintRef}>
@@ -56,8 +86,9 @@ export const Reviews = () => {
               className={styles.input}
               type="text"
               placeholder="Кодовое слово"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
+              {...register("code", {
+                required: "Введите код",
+              })}
             />
 
             <button
@@ -76,9 +107,13 @@ export const Reviews = () => {
             )}
           </div>
 
-          <button className={styles.button} disabled={!isValidCode}>
-            Отправить
-          </button>
+          {errors.code && (
+            <span className={styles.error}>{errors.code.message}</span>
+          )}
+
+          {error && <p className={styles.error}>{error}</p>}
+
+          <button className={styles.button}>Отправить</button>
         </form>
       </div>
 

@@ -6,8 +6,8 @@ export const UseStaff = () => {
   const [isLoading, setIsLoading] = useState(true); // состояние загрузки
 
   useEffect(() => {
-    // fetch("http://localhost:3000/staff")
-    fetch("http://127.0.0.1:8000/staff") // для обращения к бэку
+    // fetch("http://127.0.0.1:8000/staff")
+    fetch("http://localhost:3000/staff") // для обращения к бэку
       .then((res) => res.json())
       .then((data) => {
         // Если data — это массив
