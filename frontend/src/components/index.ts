@@ -4,3 +4,4 @@ export * from './skeleton/Skeleton';
 export * from './scroll-top/ScrollToTop';
 export * from './footer/Footer';
 export * from './modal/Modal';
+export * from './loader/Loader'

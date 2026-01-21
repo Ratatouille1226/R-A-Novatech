@@ -109,10 +109,24 @@
   border-color: #3e4be0;
 }
 
+.error {
+  color: rgb(255, 65, 65);
+  margin: -10px 0px;
+}
+
 .name {
   font-size: 18px;
   color: #fff;
   margin-bottom: 10px;
+}
+.post {
+  color: gray;
+}
+
+.avatar {
+  width: 200px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .text {

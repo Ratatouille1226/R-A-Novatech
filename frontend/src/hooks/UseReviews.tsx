@@ -18,6 +18,7 @@ export const UseReviews = () => {
       }
       const data: Reviews[] = await response.json();
       setReviews(data);
+      setLoading(false);
     } catch (err) {
       setError((err as Error).message);
     }
@@ -26,7 +27,7 @@ export const UseReviews = () => {
   //Проверяем наличие кодового слова
   const checkSecretCode = async (code: string): Promise<SecretCode | null> => {
     const res = await fetch(
-      `${API_URL}/secretCodes?code=${encodeURIComponent(code)}`
+      `${API_URL}/secretCodes?code=${encodeURIComponent(code)}`,
     );
     const data: SecretCode[] = await res.json();
 

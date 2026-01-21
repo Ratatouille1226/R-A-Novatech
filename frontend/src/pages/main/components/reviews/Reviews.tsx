@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./reviews.module.css";
+import avatar from "../../../../assets/notFoundImg.png";
 import { UseReviews } from "../../../../hooks/UseReviews";
 import type { ReviewForm } from "../../../../types/reviewForm";
+import { Loader } from "../../../../components";
 
 export const Reviews = () => {
   const { reviews, addReview, error, loading } = UseReviews();
@@ -24,11 +26,13 @@ export const Reviews = () => {
     setIndex((i) => (reviews.length ? (i + 1) % reviews.length : 0));
   const prev = () =>
     setIndex((i) =>
-      reviews.length ? (i - 1 + reviews.length) % reviews.length : 0
+      reviews.length ? (i - 1 + reviews.length) % reviews.length : 0,
     );
 
   //Отправка формы
   const onSubmit = async (data: ReviewForm) => {
+    // if (data.code !== )
+
     await addReview(data.name, data.descr, data.code);
     reset();
   };
@@ -65,6 +69,9 @@ export const Reviews = () => {
               minLength: { value: 2, message: "Минимум 2 символа" },
             })}
           />
+          {errors.name && (
+            <span className={styles.error}>{errors.name.message}</span>
+          )}
           <input
             className={styles.input}
             type="text"
@@ -72,7 +79,7 @@ export const Reviews = () => {
             {...register("descr", {
               required: "Введите отзыв",
               minLength: { value: 10, message: "Минимум 10 символов" },
-              maxLength: { value: 100, message: "Максимум 300 символов" },
+              maxLength: { value: 300, message: "Максимум 300 символов" },
             })}
           />
 
@@ -87,7 +94,7 @@ export const Reviews = () => {
               type="text"
               placeholder="Кодовое слово"
               {...register("code", {
-                required: "Введите код",
+                required: "Введите кодовое слово",
               })}
             />
 
@@ -111,8 +118,6 @@ export const Reviews = () => {
             <span className={styles.error}>{errors.code.message}</span>
           )}
 
-          {error && <p className={styles.error}>{error}</p>}
-
           <button className={styles.button}>Отправить</button>
         </form>
       </div>
@@ -124,11 +129,21 @@ export const Reviews = () => {
             ‹
           </button>
 
-          {reviews.length > 0 && (
-            <div className={styles.card}>
-              <h3 className={styles.name}>{reviews[index].name}</h3>
-              <p className={styles.text}>{reviews[index].descr}</p>
-            </div>
+          {error ? (
+            <span className={styles.error}>
+              Ошибка загрузки данных с сервера
+            </span>
+          ) : loading ? (
+            <Loader />
+          ) : (
+            reviews.length > 0 && (
+              <div className={styles.card}>
+                <img className={styles.avatar} src={avatar} alt="" />
+                <h3 className={styles.name}>{reviews[index].name}</h3>
+                <span className={styles.post}>{reviews[index].post}</span>
+                <p className={styles.text}>{reviews[index].descr}</p>
+              </div>
+            )
           )}
 
           <button className={styles.arrow} onClick={next}>
