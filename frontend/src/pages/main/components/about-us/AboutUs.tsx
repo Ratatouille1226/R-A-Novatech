@@ -1,5 +1,5 @@
 import styles from "./aboutUs.module.css";
-import staff from "../../../../assets/employees.png";
+import staff from "../../../../assets/цветочный.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 

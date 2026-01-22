@@ -3,7 +3,6 @@
 .main {
   position: relative;       /* теперь видео не вылезает за секцию */
   min-height: 100vh;        /* секция на весь экран */
-  overflow: hidden;         /* лишнее видео не торчит */
   color: #fff;
 }
 

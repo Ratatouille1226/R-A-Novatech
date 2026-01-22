@@ -9,12 +9,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
+/* .container {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;  
   padding: 0 20px; 
-}
+} */
 
 /* Chrome / Safari / Edge */
 ::-webkit-scrollbar {

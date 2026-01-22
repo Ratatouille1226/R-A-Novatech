@@ -17,8 +17,7 @@ export const Main = () => {
 
   return (
     <section className={styles.main}>
-      <MainVideo />
-
+      {/* <MainVideo /> */}
       <div className={styles.content}>
         <h1>
           {t("title_main")}
@@ -41,10 +40,10 @@ export const Main = () => {
         <WhatServices />
         <WorkOrder />
         <WorksExample />
-        <Stack />
         <Contact />
         <Reviews />
       </div>
+      <Stack />
     </section>
   );
 };

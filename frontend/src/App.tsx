@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <main className="container">
+    <main>
       <Header />
       <Comet />
       <Modal />
