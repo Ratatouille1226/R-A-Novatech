@@ -1,9 +1,9 @@
 import { Typewriter } from "react-simple-typewriter";
 import {
-  MainVideo,
+  // MainVideo,
   AboutUs,
   WhatServices,
-  Stack,
+  ScrollSlides,
   Reviews,
   Contact,
   WorksExample,
@@ -43,7 +43,7 @@ export const Main = () => {
         <Contact />
         <Reviews />
       </div>
-      <Stack />
+      <ScrollSlides />
     </section>
   );
 };

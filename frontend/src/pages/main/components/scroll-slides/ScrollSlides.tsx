@@ -10,7 +10,7 @@ const slides = [
 
 const SCROLL_LIMIT = 140;
 
-export const Stack = () => {
+export const ScrollSlides = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollSum = useRef(0);
   const isAnimating = useRef(false);
